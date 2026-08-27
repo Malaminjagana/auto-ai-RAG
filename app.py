@@ -1,66 +1,80 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from google import genai
+import os
+from dotenv import load_dotenv
 
 
-# CREATE FASTAPI APPLICATION
+# LOAD ENVIRONMENT VARIABLES
+
+load_dotenv()
 
 
-app = FastAPI(
-    title="Auto GPT RAG API",
-    description="Backend API for the website AI chatbot",
-    version="1.0.0"
-)
+# CREATE FASTAPI APP
 
 
+app = FastAPI()
 
+
+# =========================================
 # CORS
- 
+# =========================================
 
 app.add_middleware(
     CORSMiddleware,
-
     allow_origins=[
         "http://127.0.0.1:5500",
-        "http://localhost:5500",
+        "http://localhost:5500"
     ],
-
     allow_credentials=True,
-
     allow_methods=["*"],
-
     allow_headers=["*"],
 )
 
 
+# =========================================
+# OPENAI CLIENT
+# =========================================
+
+client = genai.Client(
+    api_key=os.getenv("GEMINI_API_KEY")
+)
+
+
+# =========================================
 # REQUEST MODEL
+# =========================================
 
 class ChatRequest(BaseModel):
 
-    message: str 
+    message: str
 
 
+# =========================================
 # RESPONSE MODEL
-
+# =========================================
 
 class ChatResponse(BaseModel):
 
-    answer: str 
+    answer: str
 
 
-
+# =========================================
 # HOME
+# =========================================
 
 @app.get("/")
 def home():
 
     return {
-        "message": "lj AI Agent API is running!"
+        "message": "My AI Agent API is running!"
     }
 
 
+# =========================================
 # HEALTH CHECK
-
+# =========================================
 
 @app.get("/health")
 def health():
@@ -70,7 +84,9 @@ def health():
     }
 
 
-# CHAT ENDPOINT
+# =========================================
+# AI CHAT ENDPOINT
+# =========================================
 
 @app.post("/ask", response_model=ChatResponse)
 def ask_agent(request: ChatRequest):
@@ -78,7 +94,7 @@ def ask_agent(request: ChatRequest):
     user_message = request.message.strip()
 
 
-    # Prevent empty messages
+    # Don't process empty messages
 
     if not user_message:
 
@@ -87,17 +103,34 @@ def ask_agent(request: ChatRequest):
         )
 
 
-    # Temporary response.
-    #
-    # We will replace this with
-    # the real AI agent later.
+    try:
 
-    answer = (
-        f"lj received your message : "
-        f"{user_message}. We are working on it and will get back to you soon!"
-    )
+        # SEND MESSAGE TO GEMINI AI
+        interaction = client.interactions.create(
+            model="gemini-3.7-flash",
+            input=user_message,
+        )
 
 
-    return ChatResponse(
-        answer=answer
-    )
+        
+        # GET AI TEXT
+
+        answer = interaction.output_text
+
+
+        return ChatResponse(
+            answer=answer
+        )
+
+
+    except Exception as error:
+
+        print(
+            "AI ERROR:",
+            error
+        )
+
+
+        return ChatResponse(
+            answer="Sorry, I am having trouble connecting to the AI service."
+        )
