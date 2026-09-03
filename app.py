@@ -5,6 +5,7 @@ from google import genai
 import os
 from dotenv import load_dotenv
 from rag import retrieve_knowledge 
+from fastapi.middleware.cors import CORSMiddleware
 
 # LOAD ENVIRONMENT VARIABLES
 
@@ -23,6 +24,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://imammalicksoumpou.com",
+        "https://www.imammalicksoumpou.com",
         "http://127.0.0.1:5500",
         "http://localhost:5500"
     ],
@@ -59,7 +62,7 @@ class ChatResponse(BaseModel):
 def home():
 
     return {
-        "message": "My AI Agent API is running!"
+        "message": "Lj AI Agent API is running!"
     }
 
 
