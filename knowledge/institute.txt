@@ -1,19 +1,206 @@
-Al-Imam Malick Islamic Institute
+Chunk: Malamin Jagana — Professional Profile
 
-Al-Imam Malick Islamic Institute is an educational institution
-in The Gambia.
+Malamin Jagana is a Senior Full-Stack Developer and AI Expert
+with more than 6 years of professional experience.
 
-The institute provides Arabic and Islamic education.
+He specializes in designing, building, and optimizing
+production-grade web applications from scratch and within
+existing systems.
 
-Academic Programs:
+He has experience delivering scalable and high-performance
+solutions for startups and enterprise clients.
 
-1. Arabic & Islamic Studies
-The main program focuses on Arabic language and Islamic education.
+Malamin works across full-stack development, AI integration,
+automation, backend development, frontend development,
+databases, cloud, DevOps, authentication, and API development.
 
-2. Qur'an Memorization (Hifz)
-Students can study and memorize the Qur'an.
+He is fluent in English and Arabic and has C1-level German.
+Chunk 1: Frontend Development
 
-3. English Language Program
-The institute provides English language education.
+Malamin has professional experience with modern frontend
+technologies including:
 
-The institute also provides private English programs for students.
+- HTML5
+- CSS3
+- JavaScript
+- React
+- React Native
+- Vue.js
+- TypeScript
+- Angular
+
+He builds responsive, maintainable, and production-ready
+frontend applications and works across the full stack.
+Chunk 2: Backend Development
+
+Malamin has professional backend development experience with:
+
+- .NET
+- C#
+- Node.js
+- Express.js
+- Next.js
+- Python
+- Java
+
+He develops scalable backend systems, RESTful APIs,
+automation workflows, authentication systems, and
+production-ready application logic.
+Chunk 3: AI, LLM and RAG
+
+Malamin has experience integrating AI and modern LLM
+technologies into existing applications and automation systems.
+
+His AI-related experience includes:
+
+- LLM integration
+- RAG systems
+- AI automation
+- Google Gemini integration
+- Structured JSON output
+- Prompt engineering
+- AI-powered workflows
+- LLM-based email processing
+
+He has integrated Google Gemini into existing .NET automation
+systems, including secure API key management, model configuration,
+and structured JSON response handling.
+Chunk 4: AI Automation Project
+
+Malamin built an email-to-LLM-to-JSON processing pipeline.
+
+The system extracts email content, sends the relevant information
+through a custom LLM provider, validates the response, and
+triggers automated workflows.
+
+He also worked on secure credential storage, provider endpoint
+configuration, and end-to-end testing to improve the reliability
+of LLM communication.
+Chunk 5: Databases
+
+Malamin has experience working with:
+
+- MongoDB
+- MySQL
+- PostgreSQL
+
+He works with databases as part of full-stack applications,
+backend systems, APIs, and production software.
+
+Chunk 6: DevOps, Cloud and Version Control
+
+Malamin has experience with:
+
+- Git
+- GitHub
+- Docker
+- AWS
+- Azure
+- CI/CD
+
+He has worked with development workflows, deployment,
+continuous integration, and production application environments.
+Chunk 7: Security and Authentication
+
+Malamin has experience implementing secure authentication
+and authorization systems.
+
+His security-related technologies include:
+
+- OAuth2
+- JWT
+- Secure API authentication
+- API key management
+- Secure credential storage
+
+He has implemented authentication flows and integrated secure
+API communication into production applications.
+Chunk 8: Full-Stack Client Projects
+
+Malamin has developed responsive web applications for clients
+across multiple industries including:
+
+- E-commerce
+- FinTech
+- Education
+- Healthcare
+
+His work includes secure authentication, payment gateways,
+interactive dashboards, APIs, and scalable application
+architecture.
+Chunk 9: Performance Optimization
+
+Malamin has optimized application performance and reduced
+application load times by approximately 30%.
+
+His work also included improving SEO performance and optimizing
+production web applications for better performance and user
+experience.
+Chunk 10: CHECK24 — 2025
+
+At CHECK24, Malamin developed end-to-end features across the
+full stack using:
+
+- .NET Core
+- React
+- MySQL
+
+He worked with Gitflow, mandatory pull requests, structured
+testing, code reviews, and agile cross-functional development.
+
+He implemented unit, system, and end-to-end tests and contributed
+to CHECK24's tax-related FinTech platform.
+Chunk 11: Vattenfall Berlin — 2024
+
+At Vattenfall Berlin, Malamin built and improved customer-facing
+and internal applications using:
+
+- Angular
+- .NET
+- Microsoft Dynamics
+
+He worked in an agile cross-functional team and translated
+complex requirements into scalable software features.
+
+He also worked on performance, reliability, workflow optimization,
+and continuous integration.
+Chunk 12: Climkit — 2026
+
+At Climkit, Malamin managed a portfolio of energy-management
+client sites as the primary German-speaking contact.
+
+His responsibilities included coordinating technical,
+administrative, and IT requests between installers, owners,
+residents, and internal teams.
+
+He analyzed technical and configuration issues, supported
+deployments, and helped improve communication and operational
+efficiency.
+Chunk 13: Education and Certifications
+
+Malamin's education and professional development includes:
+
+- Servicekraft für Arbeitssicherheit — IHK 2026
+- Redi School — IT, 2022–2025
+- Harvard University English Program — 2023
+- Cisco Courses — 2024
+- Full-Stack Web Development — 2019
+- Al Imam Malick — 2010
+Chunk 14: Languages
+
+Malamin speaks:
+
+- English — Native
+- Arabic — Native
+- German — C1
+
+Chunk 15: Professional Recognition
+
+Malamin's professional recognition includes being listed as a
+Top 10 Senior Full-Stack Freelancer on Upwork and achieving
+Top Rated status in 2026.
+
+He has also been recognized for outstanding freelance project
+delivery.
+
+Chunk 16 Malamin Jagana Portfolio URL https://malamin-profile.vercel.app/
