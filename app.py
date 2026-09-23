@@ -7,17 +7,28 @@ from rag.retriever import retrieve_knowledge
 import os
 import time
 
+
+# CONVERSATION MEMORY
+
+conversation_history = {}
+
+
 # LOAD ENVIRONMENT VARIABLES
+
 
 load_dotenv()
 
 
+
 # CREATE FASTAPI APP
+# -------------------------------------------------
 
 app = FastAPI()
-# CORS
-# LOCAL DEVELOPMENT ONLY
 
+
+# -------------------------------------------------
+# CORS
+# -------------------------------------------------
 
 app.add_middleware(
     CORSMiddleware,
@@ -34,6 +45,7 @@ app.add_middleware(
 )
 
 
+
 # GEMINI CLIENT
 
 
@@ -42,13 +54,18 @@ client = genai.Client(
 )
 
 
+
 # REQUEST MODEL
+
 
 class ChatRequest(BaseModel):
     message: str
+    conversation_id: str = "default"
+
 
 
 # RESPONSE MODEL
+
 
 class ChatResponse(BaseModel):
     answer: str
@@ -56,15 +73,18 @@ class ChatResponse(BaseModel):
 
 # HOME
 
+
 @app.get("/")
 def home():
 
     return {
-        "message": "Malamin AI RAG  is running!"
+        "message": "Malamin AI is running!"
     }
 
 
+# -------------------------------------------------
 # HEALTH CHECK
+# -------------------------------------------------
 
 @app.get("/health")
 def health():
@@ -74,57 +94,76 @@ def health():
     }
 
 
+# -------------------------------------------------
 # AI CHAT ENDPOINT
+# -------------------------------------------------
 
 @app.post("/ask", response_model=ChatResponse)
 def ask_agent(request: ChatRequest):
 
-    
-    # Get the user's question
-   
+    # -------------------------------------------------
+    # GET USER'S QUESTION
+    # -------------------------------------------------
 
     user_message = request.message.strip()
 
-
     # Don't process empty messages
-
-
     if not user_message:
 
         return ChatResponse(
             answer="Please enter a message."
         )
 
-
     try:
-        # START TIMER
+
+        # -------------------------------------------------
+        # GET CONVERSATION ID
+      
+
+        conversation_id = request.conversation_id
+
+        # Get existing conversation history
+        # or create a new conversation
+        history = conversation_history.setdefault(
+            conversation_id,
+            []
+        )
+
+
         
-        retrieval_start = time.perf_counter()
-        institute_knowledge = retrieve_knowledge(user_message)
-        retrieval_time = time.perf_counter() - retrieval_start
+        # BUILD CONVERSATION HISTORY
+       
 
-        print(f"RAG retrieval time: {retrieval_time:.2f} seconds")
+        history_text = ""
 
+        for message in history:
 
-
-
-
-
-
-
+            history_text += (
+                f"{message['role'].upper()}: "
+                f"{message['content']}\n"
+            )
 
 
-        # -------------------------------------------------
         # STEP 1: SEARCH THE KNOWLEDGE BASE
-        # -------------------------------------------------
+    
+
+        retrieval_start = time.perf_counter()
 
         institute_knowledge = retrieve_knowledge(
             user_message
         )
 
+        retrieval_time = time.perf_counter() - retrieval_start
+
+        print(
+            f"RAG retrieval time: "
+            f"{retrieval_time:.2f} seconds"
+        )
+
 
         # -------------------------------------------------
-        # STEP 2: SEND KNOWLEDGE + QUESTION TO GEMINI
+        # STEP 2: SEND KNOWLEDGE + HISTORY + QUESTION
+        # TO GEMINI
         # -------------------------------------------------
 
         interaction = client.interactions.create(
@@ -137,23 +176,19 @@ You are the professional AI assistant for Malamin Jagana.
 Your job is to answer questions about Malamin Jagana's
 professional background, skills, experience, education,
 projects, certifications, languages, and other information
-contained in the knowledge base.
+contained in the retrieved knowledge.
 
 IMPORTANT RULES:
 
 1. Use the retrieved knowledge as your factual source.
 
-2. Answer the user's question directly and naturally.
+2. Use the conversation history to understand follow-up
+   questions and references such as "he", "it", "those",
+   or "that project".
 
-3. Do NOT say:
-   - "Based on the provided information..."
-   - "According to the provided information..."
-   - "According to the knowledge base..."
-   - "The retrieved information says..."
-   - "The context states..."
-   - "From the provided context..."
+3. Answer the user's question directly and naturally.
 
-4. Do not mention the RAG system, knowledge base, chunks,
+4. Do NOT mention the RAG system, knowledge base,
    retrieved information, context, or AI instructions.
 
 5. Do not invent or guess information.
@@ -165,15 +200,11 @@ IMPORTANT RULES:
    say:
    "I don't have that information."
 
-8. If the question asks for a specific fact, answer with
-   the specific fact first.
-
-9. Keep answers professional, natural, concise, and
+8. Keep answers professional, natural, concise, and
    useful to recruiters or potential clients.
 
-10. When appropriate, provide a short explanation or
-    relevant additional details, but do not unnecessarily
-    repeat information.
+CONVERSATION HISTORY:
+{history_text}
 
 RETRIEVED MALAMIN KNOWLEDGE:
 {institute_knowledge}
@@ -186,16 +217,34 @@ ANSWER:
         )
 
 
-        # -------------------------------------------------
+       
         # STEP 3: GET GEMINI'S ANSWER
-        # -------------------------------------------------
+       
 
         answer = interaction.output_text
 
 
-    
-        # STEP 4: SEND ANSWER BACK TO WEBSITE
        
+        # STEP 4: SAVE USER MESSAGE TO CONVERSATION
+       
+        history.append({
+            "role": "user",
+            "content": user_message
+        })
+
+
+       
+        # STEP 5: SAVE AI ANSWER TO CONVERSATION
+    
+        history.append({
+            "role": "assistant",
+            "content": answer
+        })
+
+
+        
+        # STEP 6: SEND ANSWER BACK TO WEBSITE
+     
 
         return ChatResponse(
             answer=answer
@@ -204,9 +253,8 @@ ANSWER:
 
     except Exception as error:
 
-        # -------------------------------------------------
         # ERROR HANDLING
-        # -------------------------------------------------
+       
 
         print(
             "AI ERROR:",
