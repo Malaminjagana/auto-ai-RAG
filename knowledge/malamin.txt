@@ -1,4 +1,4 @@
-Chunk: Malamin Jagana — Professional Profile
+Malamin Jagana — Professional Profile
 
 Malamin Jagana is a Senior Full-Stack Developer and AI Expert
 with more than 6 years of professional experience.
@@ -15,7 +15,9 @@ automation, backend development, frontend development,
 databases, cloud, DevOps, authentication, and API development.
 
 He is fluent in English and Arabic and has C1-level German.
-Chunk 1: Frontend Development
+
+
+Frontend Development
 
 Malamin has professional experience with modern frontend
 technologies including:
@@ -31,7 +33,9 @@ technologies including:
 
 He builds responsive, maintainable, and production-ready
 frontend applications and works across the full stack.
-Chunk 2: Backend Development
+
+
+Backend Development
 
 Malamin has professional backend development experience with:
 
@@ -46,7 +50,9 @@ Malamin has professional backend development experience with:
 He develops scalable backend systems, RESTful APIs,
 automation workflows, authentication systems, and
 production-ready application logic.
-Chunk 3: AI, LLM and RAG
+
+
+AI, LLM and RAG
 
 Malamin has experience integrating AI and modern LLM
 technologies into existing applications and automation systems.
@@ -65,7 +71,9 @@ His AI-related experience includes:
 He has integrated Google Gemini into existing .NET automation
 systems, including secure API key management, model configuration,
 and structured JSON response handling.
-Chunk 4: AI Automation Project
+
+
+AI Automation Project
 
 Malamin built an email-to-LLM-to-JSON processing pipeline.
 
@@ -76,7 +84,9 @@ triggers automated workflows.
 He also worked on secure credential storage, provider endpoint
 configuration, and end-to-end testing to improve the reliability
 of LLM communication.
-Chunk 5: Databases
+
+
+Databases
 
 Malamin has experience working with:
 
@@ -87,7 +97,8 @@ Malamin has experience working with:
 He works with databases as part of full-stack applications,
 backend systems, APIs, and production software.
 
-Chunk 6: DevOps, Cloud and Version Control
+
+DevOps, Cloud and Version Control
 
 Malamin has experience with:
 
@@ -100,7 +111,9 @@ Malamin has experience with:
 
 He has worked with development workflows, deployment,
 continuous integration, and production application environments.
-Chunk 7: Security and Authentication
+
+
+Security and Authentication
 
 Malamin has experience implementing secure authentication
 and authorization systems.
@@ -115,7 +128,9 @@ His security-related technologies include:
 
 He has implemented authentication flows and integrated secure
 API communication into production applications.
-Chunk 8: Full-Stack Client Projects
+
+
+Full-Stack Client Projects
 
 Malamin has developed responsive web applications for clients
 across multiple industries including:
@@ -128,7 +143,9 @@ across multiple industries including:
 His work includes secure authentication, payment gateways,
 interactive dashboards, APIs, and scalable application
 architecture.
-Chunk 9: Performance Optimization
+
+
+Performance Optimization
 
 Malamin has optimized application performance and reduced
 application load times by approximately 30%.
@@ -136,7 +153,9 @@ application load times by approximately 30%.
 His work also included improving SEO performance and optimizing
 production web applications for better performance and user
 experience.
-Chunk 10: CHECK24 — 2025
+
+
+CHECK24 — 2025
 
 At CHECK24, Malamin developed end-to-end features across the
 full stack using:
@@ -150,7 +169,9 @@ testing, code reviews, and agile cross-functional development.
 
 He implemented unit, system, and end-to-end tests and contributed
 to CHECK24's tax-related FinTech platform.
-Chunk 11: Vattenfall Berlin — 2024
+
+
+Vattenfall Berlin — 2024
 
 At Vattenfall Berlin, Malamin built and improved customer-facing
 and internal applications using:
@@ -164,7 +185,9 @@ complex requirements into scalable software features.
 
 He also worked on performance, reliability, workflow optimization,
 and continuous integration.
-Chunk 12: Climkit — 2026
+
+
+Climkit — 2026
 
 At Climkit, Malamin managed a portfolio of energy-management
 client sites as the primary German-speaking contact.
@@ -176,7 +199,9 @@ residents, and internal teams.
 He analyzed technical and configuration issues, supported
 deployments, and helped improve communication and operational
 efficiency.
-Chunk 13: Education and Certifications
+
+
+Education and Certifications
 
 Malamin's education and professional development includes:
 
@@ -186,7 +211,9 @@ Malamin's education and professional development includes:
 - Cisco Courses — 2024
 - Full-Stack Web Development — 2019
 - Al Imam Malick — 2010
-Chunk 14: Languages
+
+
+Languages
 
 Malamin speaks:
 
@@ -194,7 +221,8 @@ Malamin speaks:
 - Arabic — Native
 - German — C1
 
-Chunk 15: Professional Recognition
+
+Professional Recognition
 
 Malamin's professional recognition includes being listed as a
 Top 10 Senior Full-Stack Freelancer on Upwork and achieving
@@ -203,4 +231,9 @@ Top Rated status in 2026.
 He has also been recognized for outstanding freelance project
 delivery.
 
-Chunk 16 Malamin Jagana Portfolio URL https://malamin-profile.vercel.app/
+
+Portfolio
+
+Malamin Jagana's portfolio:
+
+https://malamin-profile.vercel.app/

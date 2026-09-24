@@ -6,4 +6,6 @@ vector_db/
 APP_ENV=development
 lj.pdf
 lj-cv.docx
+chroma_db/
+
 

@@ -317,6 +317,13 @@ def load_documents():
 
 def ingest_documents():
 
+    global collection
+
+
+    # -----------------------------------------------------
+    # LOAD DOCUMENTS
+    # -----------------------------------------------------
+
     (
         chunks,
         ids,
@@ -325,7 +332,7 @@ def ingest_documents():
 
 
     # -----------------------------------------------------
-    # No documents
+    # NO DOCUMENTS
     # -----------------------------------------------------
 
     if not chunks:
@@ -338,7 +345,7 @@ def ingest_documents():
 
 
     # -----------------------------------------------------
-    # Check for duplicate IDs before ChromaDB
+    # CHECK FOR DUPLICATE IDS
     # -----------------------------------------------------
 
     if len(ids) != len(set(ids)):
@@ -351,10 +358,44 @@ def ingest_documents():
 
 
     # -----------------------------------------------------
-    # Add documents to ChromaDB
+    # DELETE OLD KNOWLEDGE COLLECTION
     # -----------------------------------------------------
 
-    collection.upsert(
+    print(
+        "Deleting old knowledge collection..."
+    )
+
+    try:
+
+        client.delete_collection(
+            name="institute_knowledge"
+        )
+
+        print(
+            "Old knowledge collection deleted."
+        )
+
+    except Exception:
+
+        print(
+            "No existing collection found."
+        )
+
+
+    # -----------------------------------------------------
+    # CREATE CLEAN COLLECTION
+    # -----------------------------------------------------
+
+    collection = client.create_collection(
+        name="institute_knowledge"
+    )
+
+
+    # -----------------------------------------------------
+    # ADD NEW DOCUMENTS
+    # -----------------------------------------------------
+
+    collection.add(
 
         documents=chunks,
 
@@ -366,7 +407,7 @@ def ingest_documents():
 
 
     # -----------------------------------------------------
-    # Success
+    # SUCCESS
     # -----------------------------------------------------
 
     print(
