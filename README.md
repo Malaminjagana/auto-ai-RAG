@@ -1,4 +1,4 @@
-# 🤖 Malamin AI — RAG-Powered Recruiter Assistant
+# 🤖 Malamin AI RAG Powered Recruiter Assistant
 
 > A production-oriented Retrieval-Augmented Generation (RAG) application that provides recruiters and potential clients with accurate, context-aware answers about **Malamin Jagana's professional background, technical skills, experience, projects, education, services, and AI expertise.**
 
